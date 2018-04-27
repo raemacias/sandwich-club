@@ -49,7 +49,7 @@ public class DetailActivity extends AppCompatActivity {
             return;
         }
 
-        populateUI();
+        populateUI(sandwich);
         Picasso.with(this)
                 .load(sandwich.getImage())
                 .into(ingredientsIv);
@@ -62,14 +62,13 @@ public class DetailActivity extends AppCompatActivity {
         Toast.makeText(this, R.string.detail_error_message, Toast.LENGTH_SHORT).show();
     }
 
-    private void populateUI(Sandwich, sandwich) {
-//
-//        image = (ImageView)findViewById(R.id.image_iv);
+    private void populateUI(Sandwich sandwich) {
+
         mAlsoKnownAs = (TextView) findViewById(R.id.also_known_tv);
-            mAlsoKnownAs.setText(Sandwich.getAlsoKnownAs());
+        mAlsoKnownAs.setText(sandwich.getAlsoKnownAs().toString());
         mPlaceOfOrigin = (TextView) findViewById(R.id.origin_tv);
         mDescription = (TextView) findViewById(R.id.description_tv);
-            mDescription.setText(Sandwich.getDescription());
+        mDescription.setText(sandwich.getDescription().toString());
         mIngredients = (TextView) findViewById(R.id.ingredients_tv);
 
     }
