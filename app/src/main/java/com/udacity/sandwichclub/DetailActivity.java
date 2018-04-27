@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
@@ -15,21 +16,17 @@ public class DetailActivity extends AppCompatActivity {
     public static final String EXTRA_POSITION = "extra_position";
     private static final int DEFAULT_POSITION = -1;
 
-    TextView alsoKnownAs;
-    TextView placeOfOrigin;
-    TextView description;
-    TextView ingredients;
+    TextView mAlsoKnownAs;
+    TextView mPlaceOfOrigin;
+    TextView mDescription;
+    TextView mIngredients;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
 
         ImageView ingredientsIv = findViewById(R.id.image_iv);
-        alsoKnownAs = findViewById(R.id.also_known_tv);
-        placeOfOrigin = findViewById(R.id.origin_tv);
-        description = findViewById(R.id.description_tv);
-        ingredients = findViewById(R.id.ingredients_tv);
 
         Intent intent = getIntent();
         if (intent == null) {
@@ -65,7 +62,15 @@ public class DetailActivity extends AppCompatActivity {
         Toast.makeText(this, R.string.detail_error_message, Toast.LENGTH_SHORT).show();
     }
 
-    private void populateUI(Sandwich sandwich) {
+    private void populateUI(Sandwich, sandwich) {
+//
+//        image = (ImageView)findViewById(R.id.image_iv);
+        mAlsoKnownAs = (TextView) findViewById(R.id.also_known_tv);
+            mAlsoKnownAs.setText(Sandwich.getAlsoKnownAs());
+        mPlaceOfOrigin = (TextView) findViewById(R.id.origin_tv);
+        mDescription = (TextView) findViewById(R.id.description_tv);
+            mDescription.setText(Sandwich.getDescription());
+        mIngredients = (TextView) findViewById(R.id.ingredients_tv);
 
     }
 }
