@@ -24,7 +24,7 @@ public class JsonUtils {
 
             String mainName = name.optString("mainName");
 
-            JSONArray jsonArray = name.getJSONArray("alsoKnownAs");
+            JSONArray jsonArray = name.optJSONArray("alsoKnownAs");
             ArrayList<String> alsoKnownAs = new ArrayList<>();
 
             for (int i = 0; i < jsonArray.length(); i++) {
