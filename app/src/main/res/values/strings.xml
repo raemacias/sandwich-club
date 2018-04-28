@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Sandwich Club</string>
 
     <!-- Detail Activity-->
@@ -12,7 +12,7 @@
 
     <!-- Error messages-->
     <string name="detail_error_message">Sandwich data not available</string>
-    <string name="strings.xml">alsoKnownAs</string>
+    <string name="strings.xml" tools:keep="@string/strings_xml">alsoKnownAs</string>
 
     <string-array name="sandwich_names">
         <item>Ham and cheese sandwich</item>

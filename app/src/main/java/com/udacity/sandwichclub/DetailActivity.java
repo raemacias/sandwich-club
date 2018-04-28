@@ -16,12 +16,7 @@ public class DetailActivity extends AppCompatActivity {
     public static final String EXTRA_POSITION = "extra_position";
     private static final int DEFAULT_POSITION = -1;
 
-    TextView mAlsoKnownAs;
-    TextView mPlaceOfOrigin;
-    TextView mDescription;
-    TextView mIngredients;
-
-        @Override
+    @Override
         protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
@@ -65,18 +60,17 @@ public class DetailActivity extends AppCompatActivity {
 
     private void populateUI(Sandwich sandwich) {
 
-        mAlsoKnownAs = (TextView) findViewById(R.id.also_known_tv);
+        TextView mAlsoKnownAs = findViewById(R.id.also_known_tv);
         for(int i = 0; i < sandwich.getAlsoKnownAs().size(); i++) {
-            mAlsoKnownAs.append(sandwich.getAlsoKnownAs().get(i));
+            mAlsoKnownAs.append(sandwich.getAlsoKnownAs().get(i) + "\n");
         }
-
-        mPlaceOfOrigin = (TextView) findViewById(R.id.origin_tv);
+        TextView mPlaceOfOrigin = findViewById(R.id.origin_tv);
         mPlaceOfOrigin.setText(sandwich.getPlaceOfOrigin());
-        mDescription = (TextView) findViewById(R.id.description_tv);
+        TextView mDescription = findViewById(R.id.description_tv);
         mDescription.setText(sandwich.getDescription());
-        mIngredients = (TextView) findViewById(R.id.ingredients_tv);
-        for(int i = 0; i < sandwich.getIngredients().size(); i++) {
-            mIngredients.append(sandwich.getIngredients().get(i));
+        TextView mIngredients = findViewById(R.id.ingredients_tv);
+        for (int i = 0; i < sandwich.getIngredients().size(); i++) {
+            mIngredients.append(sandwich.getIngredients().get(i) + "\n");
         }
     }
 }
