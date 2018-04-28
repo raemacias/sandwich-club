@@ -40,7 +40,7 @@ public class JsonUtils {
             ArrayList<String> ingredients = new ArrayList<>();
 
             for (int i = 0; i < jsonArray1.length(); i++) {
-                ingredients.add(jsonArray1.getString(i));
+                ingredients.add(jsonArray1.optString(i));
             }
 
             return new Sandwich(mainName, alsoKnownAs, placeOfOrigin, description, image, ingredients);
