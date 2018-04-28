@@ -20,7 +20,7 @@ public class JsonUtils {
 
             JSONObject rootObject = new JSONObject(json);
 
-            JSONObject name = rootObject.getJSONObject("name");
+            JSONObject name = rootObject.optJSONObject("name");
 
             String mainName = name.optString("mainName");
 
@@ -30,13 +30,13 @@ public class JsonUtils {
             for (int i = 0; i < jsonArray.length(); i++) {
                 alsoKnownAs.add(jsonArray.getString(i));
             }
-            String placeOfOrigin = name.optString("placeOfOrigin");
+            String placeOfOrigin = rootObject.optString("placeOfOrigin");
 
-            String description = name.optString("description");
+            String description = rootObject.optString("description");
 
-            String image = name.optString("image");
+            String image = rootObject.optString("image");
 
-            JSONArray jsonArray1 = name.getJSONArray("ingredients");
+            JSONArray jsonArray1 = rootObject.getJSONArray("ingredients");
             ArrayList<String> ingredients = new ArrayList<>();
 
             for (int i = 0; i < jsonArray1.length(); i++) {
@@ -52,4 +52,5 @@ public class JsonUtils {
 
 
     }
+
 }
