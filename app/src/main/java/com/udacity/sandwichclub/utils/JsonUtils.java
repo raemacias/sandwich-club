@@ -13,7 +13,7 @@ public class JsonUtils {
 
     public static Sandwich parseSandwichJson(String json) {
 
-         //The code below is my interpretation of mentor comments on the forums, stack overflow
+        //The code below is my interpretation of mentor comments on the forums, stack overflow
         //and tutorials.
 
         try {
@@ -49,8 +49,5 @@ public class JsonUtils {
             e.printStackTrace();
             return null;
         }
-
-
     }
-
 }
